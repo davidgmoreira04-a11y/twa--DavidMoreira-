@@ -1,0 +1,60 @@
+{
+  "count": 8,
+  "total": 200.88,
+  "categories": [
+    "Metroidvania",
+    "Platformer",
+    "Puzzle",
+    "RPG",
+    "Roguelike",
+    "Sandbox",
+    "Simulation"
+  ],
+  "top3": [
+    {
+      "id": 5,
+      "name": "Elden Ring",
+      "category": "RPG",
+      "price": 59.99,
+      "tags": [
+        "fantasy",
+        "difficult",
+        "open-world"
+      ],
+      "developer": {
+        "name": "FromSoftware",
+        "country": "JP"
+      }
+    },
+    {
+      "id": 1,
+      "name": "The Witcher 3",
+      "category": "RPG",
+      "price": 29.99,
+      "tags": [
+        "fantasy",
+        "open-world",
+        "story-rich"
+      ],
+      "developer": {
+        "name": "CD Projekt",
+        "country": "PL"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Minecraft",
+      "category": "Sandbox",
+      "price": 26.95,
+      "tags": [
+        "survival",
+        "multiplayer",
+        "creative"
+      ],
+      "developer": {
+        "name": "Mojang",
+        "country": "SE"
+      }
+    }
+  ]
+}
