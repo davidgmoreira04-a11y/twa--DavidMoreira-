@@ -1,0 +1,4 @@
+body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+li { cursor: pointer; padding: 0.25rem 0; }
+li.selected { font-weight: bold; }
+#status { color: #666; }
