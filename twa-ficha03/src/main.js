@@ -119,7 +119,6 @@ function render() {
   detailEl.replaceChildren(...(selected ? [toDetail(selected)] : []))
 }
 
-
 qEl.addEventListener('input', (e) => {
   state.query = e.target.value
   render()
@@ -145,4 +144,3 @@ listEl.addEventListener('click', (e) => {
 
 
 load()
-state.items = await getJSON('https://api.github.com/repos/nodejs/nope')
