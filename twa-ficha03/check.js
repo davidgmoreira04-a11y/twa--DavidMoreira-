@@ -8,22 +8,26 @@ import { byCategory, categories, search, sortByPrice, top, total, withDiscount }
 const items = JSON.parse(await readFile(new URL('./public/items.json', import.meta.url), 'utf8'))
 
 assert.equal(items.length >= 8, true)
-assert.equal(byCategory(items, 'game').length, 3)
-assert.deepEqual(search(items, 'PUZZLE').map((i) => i.id), [5, 6])
+assert.equal(byCategory(items, 'RPG').length, 2)
+assert.deepEqual(search(items, 'INDIE').map((i) => i.id), [3, 4, 6, 7]) // sem distinguir maiúsculas · case-insensitive
 assert.equal(total([{ price: 2 }, { price: 3.5 }]), 5.5)
-assert.deepEqual(top(items, 2).map((i) => i.id), [7, 4])
-assert.deepEqual(categories(items), ['book', 'game', 'tool'])
+assert.deepEqual(top(items, 2).map((i) => i.id), [5, 1])
+assert.deepEqual(categories(items), [
+  'Metroidvania', 'Platformer', 'Puzzle', 'RPG', 'Roguelike', 'Sandbox', 'Simulation',
+])
 
 const before = structuredClone(items)
-assert.equal(withDiscount(items, 10)[0].price, 29.25)
+assert.equal(withDiscount(items, 10)[0].price, 26.99)
 assert.deepEqual(items, before)
 
 // Ficha 03: sortByPrice — new array, both directions, originals untouched
 const desc = sortByPrice(items, 'desc')
 const asc = sortByPrice(items, 'asc')
-assert.deepEqual(desc.slice(0, 2).map((i) => i.id), [7, 4])
-assert.equal(asc[0].id, 5)
-assert.equal(asc.at(-1).id, 7)
+assert.deepEqual(desc.slice(0, 2).map((i) => i.id), [5, 1])
+assert.equal(asc[0].id, 2)
+assert.equal(asc.at(-1).id, 5)
 assert.deepEqual(sortByPrice([{ price: 9 }, { price: 10 }, { price: 100 }]).map((i) => i.price), [100, 10, 9]) // numeric, not string
+assert.deepEqual(sortByPrice(items), desc) // por omissão é 'desc' · default is 'desc'
+assert.deepEqual(sortByPrice([]), []) // lista vazia · empty list
 assert.notEqual(desc, items)
 assert.deepEqual(items, before)
